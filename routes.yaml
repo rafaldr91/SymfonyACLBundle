@@ -1,0 +1,4 @@
+app_bundle:
+  # loads routes from the YAML, XML or PHP files found in some bundle directory
+  resource: '@VibbeACLBundle/Resources/config/routing/'
+  type:     directory

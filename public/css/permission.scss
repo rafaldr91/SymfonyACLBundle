@@ -1,0 +1,113 @@
+.btn-permission {
+  margin-left: 10px;
+}
+#permissions_form {
+  padding-left: 20px;
+  .form-group-div {
+    position: relative;
+    z-index: 100;
+    &.is-nested {
+      padding-left: 30px;
+    }
+    &:before {
+      content: '';
+      margin-right: 10px;
+      display: inline-block;
+      vertical-align: text-top;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border: 1px solid #e4e4e4;
+      border-radius: 3px;
+    }
+    &.is-checked:after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 10px;
+      background: #0e1224;
+      width: 2px;
+      height: 2px;
+      box-shadow: 2px 0 0 #0e1224, 4px 0 0 #0e1224, 4px -2px 0 #0e1224, 4px -4px 0 #0e1224, 4px -6px 0 #0e1224, 4px -8px 0 #0e1224;
+      transform: rotate(45deg);
+    }
+    &.is-nested:after {
+      left: 35px;
+    }
+    input[type=checkbox] {
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      border: 0;
+      margin: -1px;
+      clip: rect(0,0,0,0);
+      overflow: hidden;
+      position: absolute;
+    }
+  }
+  .form-group {
+    flex-direction: row-reverse;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 15px;
+    &:first-child .form-group-label.form-group-label-parent:after {
+      content: '';
+      position: absolute;
+      width: 1px;
+      height: var(--height);
+      background: #e4e4e4;
+      left: 10px;
+      top: 20px;
+      z-index: -1;
+    }
+  }
+  .form-group-label {
+    padding-left: 30px;
+    position: relative;
+    z-index: 11;
+    width: 300px;
+    margin: 0 0 0 -30px;
+    line-height: 20px;
+    font-weight: 500;
+    &.form-group-label-parent {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 1px;
+      background: #e4e4e4;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &.form-group-label-parent:before {
+      content: none;
+    }
+    .label-wrapper {
+      display: inline;
+      padding: 0 15px 0 0;
+      background: #fff;
+    }
+  }
+}
+
+.toggle-permissions {
+  margin-left: 300px;
+  position: relative;
+  cursor: pointer;
+  &:before {
+    content: '';
+    height: 1px;
+    top: 11px;
+    width: 510px;
+    right: 30px;
+    background-color: #e4e4e4;
+    position: absolute;
+    z-index: 5;
+  }
+}
+
+/*# sourceMappingURL=permission.css.map */

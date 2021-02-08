@@ -1,0 +1,63 @@
+services:
+  _defaults:
+    autowire: true      # Automatically injects dependencies in your services.
+    autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+    public: true       # Allows optimizing the container by removing unused services; this also means
+    # fetching services directly from the container via $container->get() won't work.
+    # The best practice is to be explicit about your dependencies anyway.
+
+  vibbe.access_service.processor:
+    class: 'Vibbe\ACL\AccessProcessors\DefaultAccessProcessor'
+    public: true
+
+  vibbe.access_service.user_decorator:
+    class: 'Vibbe\ACL\Decorator\UserRoleDecorator'
+    public: true
+
+  vibbe.access_service:
+    class: 'Vibbe\ACL\Service\AccessService'
+    public: true
+
+  Vibbe\ACL\Service\AccessService:
+    autowire: true
+    public: true
+
+  Vibbe\ACL\Datatable\RoleDatatable:
+    autowire: true
+    public: true
+
+  Vibbe\ACL\Processor\RoleProcessor:
+    autowire: true
+    public: true
+
+  Vibbe\ACL\Presenter\RolePresenter:
+    autowire: true
+    public: true
+
+  Vibbe\ACL\Form\AddRoleForm:
+    autowire: true
+    public: true
+
+  Vibbe\ACL\Form\PermissionsForm:
+    autowire: true
+    public: true
+
+  #Vibbe\ACL\Interfaces\AccessServiceInterface: '@vibbe.acl'
+
+  Vibbe\ACL\Repository\ACLRoleRepository:
+    autowire: true
+    tags: ['doctrine.repository_service']
+
+  vibbe.admin_configure_menu_listener:
+    class: Vibbe\ACL\Subscribers\ConfigureMenuListener
+    tags:
+      - { name: kernel.event_listener, event: App\Event\ConfigureMenuEvent }
+
+  Vibbe\ACL\Controller\ACLController:
+    autowire: true
+    calls:
+      - method: setContainer
+        arguments: ['@service_container']
+#      - method: setAccessService
+#        arguments: ['@vibbe.access_service']
+

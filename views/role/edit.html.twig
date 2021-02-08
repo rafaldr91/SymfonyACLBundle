@@ -1,0 +1,30 @@
+{% extends "admin/base.html.twig" %}
+{% block page_title %}{% trans %}pages.titles.edit_role{% endtrans %}{% endblock page_title %}
+{% block head %}
+{% endblock %}
+{% block page_header_title %}
+    {% trans %}pages.titles.edit_role{% endtrans %}
+{% endblock page_header_title %}
+{% block breadcrumbs %}
+    <li><a href="{{ path('admin_acl_role-list') }}">{% trans %}pages.titles.roles{% endtrans %}</a></li>
+    <li class="active">{% trans %}pages.titles.role_edit{% endtrans %}</li>
+{% endblock breadcrumbs %}
+
+{% block main_content %}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header" >
+                    {#<h3 class="box-title">Different Height</h3>#}
+                </div>
+                <div class="box-body">
+                    {{ form(form) }}
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+    </div>
+{% endblock main_content %}
+
+{% block javascripts %}
+{% endblock %}

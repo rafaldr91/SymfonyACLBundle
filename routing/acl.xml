@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="admin_acl_role-list" controller="Vibbe\ACL\Controller\ACLController::roleList" path="/admin/roles/list" methods="GET|HEAD|POST">
+        <!-- settings -->
+    </route>
+    <route id="admin_acl_role-add" controller="Vibbe\ACL\Controller\ACLController::addRole" path="/admin/roles/add" methods="GET|HEAD">
+        <!-- settings -->
+    </route>
+    <route id="admin_acl_role-store" controller="Vibbe\ACL\Controller\ACLController::store" path="/admin/roles/store" methods="POST">
+        <!-- settings -->
+    </route>
+    <route id="admin_acl_role-edit" controller="Vibbe\ACL\Controller\ACLController::edit" path="/admin/roles/{id}/edit" methods="GET|HEAD">
+        <requirement key="id">\d+</requirement>
+    </route>
+    <route id="admin_users_role-delete" controller="Vibbe\ACL\Controller\ACLController::delete" path="/admin/roles/{id}/delete" methods="DELETE">
+        <requirement key="id">\d+</requirement>
+    </route>
+
+    <route id="admin_acl_role-permissions" controller="Vibbe\ACL\Controller\ACLController::permissions" path="/admin/roles/{id}/permissions" methods="GET|HEAD">
+        <requirement key="id">\d+</requirement>
+    </route>
+    <route id="admin_acl_role-permissions-store" controller="Vibbe\ACL\Controller\ACLController::storePermissions" path="/admin/roles/{id}/permissions-store" methods="POST">
+        <requirement key="id">\d+</requirement>
+    </route>
+</routes>
